@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "2fef0059-fd8f-4f10-9cbd-bb6bf8ebf507",
+		"name": "sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ALLUSERS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has USERS\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Body matches EMAIL\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"michael.lawson@reqres.in\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api{{PAGE}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api{{PAGE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATEUSER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Status code name has USERS\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BRUCE BANNER\",\r\n    \"job\": \"HULK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/users",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has USERS\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ROGERS\",\r\n    \"job\": \"CAPTAIN AMERICA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api{{USER}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api{{USER}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has USERS\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"JARVIS\",\r\n    \"job\": \"AI OF TONY STARK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api{{USER}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api{{USER}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Status code name has USERS\", function () {\r",
+							"    pm.response.to.have.status(\"No Content\");\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api{{USER}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api{{USER}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
